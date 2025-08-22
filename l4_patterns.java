@@ -116,30 +116,48 @@ public class l4_patterns {
 
         //Print a solid rhombus.
 
+        for(int i=1;i<=4;i++){
+                for(int j=1;j<=4-i;j++){
+                    System.out.print("   ");
+                }
+                for(int j=1;j<=4;j++){
+                    System.out.print(" * ");
+                }
+                System.out.println();
+            }
+
+        // primid
+
         // for(int i=1;i<=4;i++){
         //         for(int j=1;j<=4-i;j++){
         //             System.out.print("   ");
         //         }
-        //         for(int j=1;j<=4;j++){
+        //         for(int j=1;j<=i;j++){
+        //             System.out.print(" * ");
+        //         }
+        //         for(int j=1;j<=i-1;j++){
         //             System.out.print(" * ");
         //         }
         //         System.out.println();
         //     }
 
-        // primid
+        //Print a number pyramid
 
-        for(int i=1;i<=4;i++){
-                for(int j=1;j<=4-i;j++){
-                    System.out.print("   ");
-                }
-                for(int j=1;j<=i;j++){
-                    System.out.print(" * ");
-                }
-                for(int j=1;j<=i-1;j++){
-                    System.out.print(" * ");
-                }
-                System.out.println();
-            }
+        // for(int i=1;i<=5;i++){
+        //     for(int j=1;j<=5-i;j++){
+        //         System.out.print(" ");
+        //     }
+        //     for(int j=1;j<=i;j++){
+        //         System.out.print(j);
+        //     }
+        //     for(int j=i-1;j>=1;j--){
+        //         System.out.print(j);
+        //     }
+        //     System.out.println();
+        // }
+
+        //Print a palindromic number pyramid.
+        
 
 
 
