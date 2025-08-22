@@ -2,33 +2,47 @@ public class l5_advancePattern {
 
     public static void main(String[] args){
        //butterfly pattern
-       int n=4;
-       for(int i=1;i<=n;i++){
-        for(int j=1;j <=i;j++){
-            System.out.print("*");
-        }
-        for(int j=1;j<=2*(n-i);j++){
-            System.out.print(" ");
-        }
-        for(int j=1;j<=i;j++){
-            System.out.print("*");
-        }
-         System.out.println();
-       } 
-       for(int i=n;i>=1;i--){
-        for(int j=1;j <=i;j++){
-            System.out.print("*");
-        }
-        for(int j=1;j<=2*(n-i);j++){
-            System.out.print(" ");
-        }
-        for(int j=1;j<=i;j++){
-            System.out.print("*");
-        }
-         System.out.println();
-       } 
+       //fist half
 
+    //    int n=4;
+    //    for(int i=1;i<=n;i++){
+    //     for(int j=1;j <=i;j++){
+    //         System.out.print("*");
+    //     }
+    //     for(int j=1;j<=2*(n-i);j++){
+    //         System.out.print(" ");
+    //     }
+    //     for(int j=1;j<=i;j++){
+    //         System.out.print("*");
+    //     }
+    //      System.out.println();
+    //    } 
+    //    //second half
+    //    for(int i=n;i>=1;i--){
+    //     for(int j=1;j <=i;j++){
+    //         System.out.print("*");
+    //     }
+    //     for(int j=1;j<=2*(n-i);j++){
+    //         System.out.print(" ");
+    //     }
+    //     for(int j=1;j<=i;j++){
+    //         System.out.print("*");
+    //     }
+    //      System.out.println();
+    //    } 
+
+      //solid rhombus pattern
       
+      int n=5;
+      for(int i=1;i<=n;i++){
+        for(int j=1;j<=n-i;j++){
+            System.out.print("   ");
+        }
+        for(int j=1;j<=n;j++){
+            System.out.print(" * ");
+        }
+        System.out.println();
+      }
     }
     
 }
