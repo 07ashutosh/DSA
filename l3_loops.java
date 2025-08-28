@@ -117,6 +117,7 @@ public class l3_loops {
             }
         } while (num != 0);
         System.out.println("Exiting the program. Thank you!");
+        sc.close();
     }
 
 }

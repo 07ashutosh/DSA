@@ -42,6 +42,7 @@ public class l2_conditional_statements {
             default:System.out.println("invalid button number");
         }
 
+        sc.close(); 
     }
     
 }
