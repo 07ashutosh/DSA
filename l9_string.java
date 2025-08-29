@@ -24,11 +24,30 @@ public class l9_string {
         // System.out.println("hello "+name);
 
         //compare two string 
-        String name1= "ashu";
-        String name2="ashu";
-        System.out.println(name1.compareTo(name2));
-
-
+        // String name1= "ashu";
+        // String name2="ashu";
+        // System.out.println(name1.compareTo(name2));
         // sc.close();
+
+        // String Builder
+
+
+        StringBuilder sb = new StringBuilder("Abhishek");
+        System.out.println(sb);
+
+        //char at
+        System.out.println(sb.charAt(0));
+
+        // set char at index
+        sb.setCharAt(0,'S');
+        System.out.println(sb);
+
+        //insert char at index
+        sb.insert(0,'A');
+        System.out.println(sb);
+
+        //delete char at index
+        sb.delete(1,2);
+        System.out.println(sb);
     }
 }
