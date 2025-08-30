@@ -1,3 +1,4 @@
+import java.util.*;
 public class l10_bitManipulation {
     public static void main(String[] args){
         // get bit
@@ -40,17 +41,43 @@ public class l10_bitManipulation {
         // Q: clear the 3rd bit (position = 3) of the number n.(n=0101)
         // bit mask = 1<<i;
         // operation = AND with NOT
+        // int n=5;
+        // int pos = 2;
+        // int bitMask = 1<<pos;
+
+        // int notbitmask = ~(bitMask);
+        // int newNumber = notbitmask & n;
+
+        // System.out.println("the new number is :"+ newNumber);
+
+        //update bit
+
+        // Q: update the 2nd bit (position = 1) of the number n to 1.(n=0101)
+        // bit mask = 1<<i;
+        // operation = AND with NOT (for creating zero at that position)
+        // OR (for creating one at that position)   
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter any operatin 0 and 1:");
+        int oper = sc.nextInt();
         int n=5;
-        int pos = 2;
+        int pos= 1;
         int bitMask = 1<<pos;
 
-        int notbitmask = ~(bitMask);
-        int newNumber = notbitmask & n;
+        if(oper == 0){
+            int notbitmask = ~(bitMask);
+            int newNumber = notbitmask & n;
+            System.out.println("the new number is :" + newNumber);
+        }else{
+            int newNumber = bitMask | n;
+            System.out.println("the new number is :" + newNumber);
+        }
 
-        System.out.println("the new number is :"+ newNumber);
-
-
+        sc.close();
         
+
+
+
 
 
     }
