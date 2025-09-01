@@ -28,15 +28,28 @@ public class l12Recursion {
     // sumNumbers(i+1, n, sum);
     // }
 
-    public static int calcFactorial(int n) {
-        if (n == 1 || n == 0) {
-            return 1;
-        }
+    // public static int calcFactorial(int n) {
+    //     if (n == 1 || n == 0) {
+    //         return 1;
+    //     }
 
-        int nm1 = calcFactorial(n - 1);
-        int fact = n * nm1;
-        return fact;
-    }
+    //     int nm1 = calcFactorial(n - 1);
+    //     int fact = n * nm1;
+    //     return fact;
+    // }
+
+
+    // public static void fibonacci(int a, int b, int n){
+    //     if(n==0){
+    //         return;
+    //     }
+    //     int c= a+b;
+    //     System.out.println(c);
+    //     fibonacci(b, c, n-1);
+
+    // }
+
+    
 
     public static void main(String[] args) {
 
@@ -52,8 +65,20 @@ public class l12Recursion {
         // sumNumbers(1,5,0);
 
         // Q: calculating factorial of n
-        int n=5;
-        System.out.println(calcFactorial(n));
+        // int n=5;
+        // System.out.println(calcFactorial(n));
+
+
+        //Q: printing fibonacci series
+        // int a=0;
+        // int b= 1;
+        // System.out.println(a);
+        // System.out.println(b);
+        // int n=7;
+        // fibonacci(a, b, n-2);
+        
+
+        
 
     }
 }
