@@ -49,7 +49,20 @@ public class l12Recursion {
 
     // }
 
-    public static int calPower(int x, int n){
+    // public static int calPower(int x, int n){
+    //     if(n==0){
+    //         return 1;
+    //     }
+
+    //     if(x==0){
+    //         return 0;
+    //     }
+    //     int calnm1 = calPower(x, n-1);
+    //     int xpowr = x*calnm1;
+    //     return xpowr;
+    // }
+
+    public static int calPowerHlogn(int x, int n){
         if(n==0){
             return 1;
         }
@@ -57,9 +70,12 @@ public class l12Recursion {
         if(x==0){
             return 0;
         }
-        int calnm1 = calPower(x, n-1);
-        int xpowr = x*calnm1;
-        return xpowr;
+        if(n%2==0){
+            return calPowerHlogn(x, n/2) * calPowerHlogn(x, n/2);
+        }else{
+            return calPowerHlogn(x, n/2) * calPowerHlogn(x, n/2) * x;
+
+        }
     }
 
     public static void main(String[] args) {
@@ -90,10 +106,16 @@ public class l12Recursion {
         
 
         //Q: print X^n (stack height =n)
+        // int x = 2;
+        // int n = 5;
+        // int sol = calPower(x, n);
+        // System.out.println(sol);
+
+
+        //Q: print X^n (stack height = log n)
         int x = 2;
         int n = 5;
-        int sol = calPower(x, n);
+        int sol = calPowerHlogn(x, n);
         System.out.println(sol);
-
     }
 }
