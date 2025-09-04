@@ -26,25 +26,42 @@ public class i12_recursion2 {
 
     //Q: finding the 1st and last occurence of an element in a string
 
-    public static int first = -1;
-    public static int last = -1;
-    public static void findOccurence(String str, int idx ,char element){
-        if(idx == str.length()){
-            System.out.println(first);
-            System.out.println(last);
-            return;
-        }
-        char currentChar = str.charAt(idx);
-        if(currentChar == element){
-            if(first == -1){
-                first = idx;
-            }else{
-                last = idx;
-            }
+    // public static int first = -1;
+    // public static int last = -1;
+    // public static void findOccurence(String str, int idx ,char element){
+    //     if(idx == str.length()){
+    //         System.out.println(first);
+    //         System.out.println(last);
+    //         return;
+    //     }
+    //     char currentChar = str.charAt(idx);
+    //     if(currentChar == element){
+    //         if(first == -1){
+    //             first = idx;
+    //         }else{
+    //             last = idx;
+    //         }
+    //     }
+
+    //     findOccurence(str, idx+1, element);
+
+    // }
+
+
+    //Q: checking if an array is sorted (strictly increasing)
+    public static boolean isSorted(int arr[],int idx){
+        //base case
+        if(idx == arr.length-1){
+            return true;
         }
 
-        findOccurence(str, idx+1, element);
-
+        if(arr[idx]< arr[idx+1]){
+            //array is sorted till now
+            return isSorted(arr, idx+1);
+        }
+        else{
+            return false;
+        }
     }
 
     public static void main(){
@@ -60,7 +77,12 @@ public class i12_recursion2 {
 
 
         //Q: finding the 1st and last occurence of an element in a string
-        String str = "abccddaachaah";
-        findOccurence(str, 0, 'a');
+        // String str = "abccddaachaah";
+        // findOccurence(str, 0, 'a');
+
+
+        //Q: checking if an array is sorted (strictly increasing)
+        int arr[] = {1,2,3};
+        System.out.println(isSorted(arr, 0));
     }
 }
