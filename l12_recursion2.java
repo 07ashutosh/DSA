@@ -93,21 +93,38 @@ public class l12_recursion2 {
     // }
 
     //Q6: remove duplicates from a string
-    public static boolean[] map = new boolean[26];
-    public static void remvDuplicate(String str , int idx, String newStr){
+    // public static boolean[] map = new boolean[26];
+    // public static void remvDuplicate(String str , int idx, String newStr){
+    //     if(idx == str.length()){
+    //         System.out.println(newStr);
+    //         return;
+    //     }
+    //     char curChar = str.charAt(idx);
+    //     if(map[curChar - 'a'] == true){
+    //         //duplicate
+    //         remvDuplicate(str, idx+1, newStr);
+    //     }else{
+    //         newStr += curChar;
+    //         map[curChar-'a'] = true;
+    //         remvDuplicate(str, idx+1, newStr);
+    //     }
+    // }
+
+
+    //Q7: print all subsequences of a string
+    public static void subsequences(String str, int idx, String newstr){
         if(idx == str.length()){
-            System.out.println(newStr);
+            System.out.println(newstr);
             return;
         }
+
         char curChar = str.charAt(idx);
-        if(map[curChar - 'a'] == true){
-            //duplicate
-            remvDuplicate(str, idx+1, newStr);
-        }else{
-            newStr += curChar;
-            map[curChar-'a'] = true;
-            remvDuplicate(str, idx+1, newStr);
-        }
+
+        //to be
+        subsequences(str, idx+1, newstr+curChar);
+
+        // not to be
+        subsequences(str, idx+1, newstr);
     }
 
 
@@ -139,7 +156,13 @@ public class l12_recursion2 {
 
 
         //Q6: remove duplicates from a string
-        String str = "abbcddef";
-        remvDuplicate(str, 0, "");
+        // String str = "abbcddef";
+        // remvDuplicate(str, 0, "");
+
+
+        //Q7: print all subsequences of a string
+        String str = "abc";
+        subsequences(str, 0, "");
+
     }
 }
