@@ -1,3 +1,4 @@
+import java.util.HashSet;
 
 public class l12_recursion2 {
 
@@ -111,20 +112,62 @@ public class l12_recursion2 {
     // }
 
 
-    //Q7: print all subsequences of a string
-    public static void subsequences(String str, int idx, String newstr){
+    //Q7: print all subsequences of a string   (so so important)
+    // public static void subsequences(String str, int idx, String newstr){
+    //     if(idx == str.length()){
+    //         System.out.println(newstr);
+    //         return;
+    //     }
+
+    //     char curChar = str.charAt(idx);
+
+    //     //to be
+    //     subsequences(str, idx+1, newstr+curChar);
+
+    //     // not to be
+    //     subsequences(str, idx+1, newstr);
+    // }
+
+
+
+    //Q8: print all unique subsequences of a string   (so so important)
+    // public static void subsequences(String str, int idx, String newstr,HashSet<String> set){
+    //     if(idx == str.length()){
+    //         if(set.contains(newstr)){
+    //             return;
+    //         }else{
+    //             System.out.println(newstr);
+    //             set.add(newstr);
+    //             return;
+    //         }
+            
+    //     }
+
+    //     char curChar = str.charAt(idx);
+
+    //     //to be
+    //     subsequences(str, idx+1, newstr+curChar,set);
+
+    //     // not to be
+    //     subsequences(str, idx+1, newstr,set);
+    // }
+
+
+    //Q:9 keypad combination
+    public static String[] keyPad = {".","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz"}; 
+
+    public static void printkeyPadComb(String str , int idx , String Combination){
+        //base case
         if(idx == str.length()){
-            System.out.println(newstr);
+            System.out.println(Combination);
             return;
         }
+        char curchar = str.charAt(idx);
+        String mapping = keyPad[curchar-'0'];
 
-        char curChar = str.charAt(idx);
-
-        //to be
-        subsequences(str, idx+1, newstr+curChar);
-
-        // not to be
-        subsequences(str, idx+1, newstr);
+        for(int i=0;i<mapping.length();i++){
+            printkeyPadComb(str, idx+1, Combination+mapping.charAt(i));
+        }
     }
 
 
@@ -161,8 +204,19 @@ public class l12_recursion2 {
 
 
         //Q7: print all subsequences of a string
-        String str = "abc";
-        subsequences(str, 0, "");
+        // String str = "abc";
+        // subsequences(str, 0, "");
+
+
+        //Q8: print all unique subsequences of a string (using hashset)
+        // String str = "aaa";
+        // HashSet <String> set = new HashSet<>();
+        // subsequences(str, 0, "",set);
+
+
+        //Q9: printing combination 
+        String str = "23";
+        printkeyPadComb(str, 0, ""); 
 
     }
 }
