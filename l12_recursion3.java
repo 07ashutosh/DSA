@@ -38,23 +38,41 @@ public class l12_recursion3 {
 
 
     //Q3: place tile of size 1 X m in a floor of size n X m 
-    public static int tilePlacement(int n , int m){
-        //basecase
-        if(n == m){
-            return 2;
-        }
-        if (n < m){
-            return 1;
-        }
-        //vertical placement
-        int vertical = tilePlacement(n-m, m);
+    // public static int tilePlacement(int n , int m){
+    //     //basecase
+    //     if(n == m){
+    //         return 2;
+    //     }
+    //     if (n < m){
+    //         return 1;
+    //     }
+    //     //vertical placement
+    //     int vertical = tilePlacement(n-m, m);
 
-        // horizontal placement
-        int horizontal = tilePlacement(n-1, m);
+    //     // horizontal placement
+    //     int horizontal = tilePlacement(n-1, m);
 
-        return vertical + horizontal;
+    //     return vertical + horizontal;
 
-    }
+    // }
+
+
+    //Q4:finding the ways in which you can invite n people to a your party,singleor in pair
+    // public static int invitGuest(int n){
+    //     //basecase
+    //     if(n<=1){
+    //         return 1;
+    //     }
+
+    //     //single
+    //     int singleGuest = invitGuest(n-1);
+
+    //     //pair guest
+
+    //     int pairGuest = (n-1)*invitGuest(n-2);
+
+    //     return singleGuest+pairGuest;
+    // }
     public static void main(String[] args){
 
         //Q1: printing all permutation of a string
@@ -70,9 +88,17 @@ public class l12_recursion3 {
 
 
         //Q3: place tile of size 1 X m in a floor of size n X m 
-        int n = 3;
-        int m = 2;
-        int totPlacements = tilePlacement(n, m);
-        System.out.println(totPlacements);
+        // int n = 3;
+        // int m = 2;
+        // int totPlacements = tilePlacement(n, m);
+        // System.out.println(totPlacements);
+
+
+        //Q4: finding the ways in which you can invite n people to a your party,singleor in pair
+        // int n = 4;
+        // int totalWays = invitGuest(n);
+        // System.out.println(totalWays);
+
+        
     } 
 }
