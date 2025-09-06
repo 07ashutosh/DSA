@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class l12_recursion3 {
 
     // Q1: printing all permutation of a string
@@ -73,6 +75,29 @@ public class l12_recursion3 {
 
     //     return singleGuest+pairGuest;
     // }
+
+
+    //Q5: printing all the subset of a first n natural numbers
+    public static void printsubset(ArrayList<Integer> subset){
+        for(int i=0;i<subset.size();i++){
+            System.out.print(subset.get(i)+" ");
+        }
+        System.out.println();
+    }
+    public static void findSubset(int num,ArrayList<Integer> subset){
+        //basecase
+        if(num ==0){
+            printsubset(subset);
+            return;
+        }
+        //add
+        subset.add(num);
+        findSubset(num-1, subset);
+
+        //not add
+        subset.remove(subset.size()-1);
+        findSubset(num-1, subset);
+    }
     public static void main(String[] args){
 
         //Q1: printing all permutation of a string
@@ -99,6 +124,12 @@ public class l12_recursion3 {
         // int totalWays = invitGuest(n);
         // System.out.println(totalWays);
 
-        
+
+
+        //Q5: printing all the subset of a first n natural numbers
+        int num = 3;
+        ArrayList<Integer> subset = new ArrayList<>();
+        findSubset(num, subset);
+
     } 
 }
