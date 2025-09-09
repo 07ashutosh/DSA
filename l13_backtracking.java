@@ -2,118 +2,122 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class l13_backtracking {
-    //Q1 : printing all the permutations of arranging n strudents in chairs
-    // public static void printPermutations(String str , String perm ,int idx){
-    //     //basecase
-    //     if(str.length()==0){
-    //         System.out.println(perm);
-    //         return;
-    //     }
-    //     for(int i=0;i<str.length();i++){
-    //         char curChar = str.charAt(i);
-    //         String newstr = str.substring(0, i)+str.substring(i+1);
-    //         printPermutations(newstr, perm + curChar, idx+1);
-    //     }
-    // }
 
-
-
-    //Q2: n queens problem (chess)
-    public boolean isSafe(int row,int col ,char[][] board){
-        //horizontal
-        for(int j =0; j< board.length;j++){
-            if(board[row][j]=='Q'){
+    // check if safe to place a queen
+    public boolean isSafe(int row, int col, char[][] board) {
+        // horizontal
+        for (int j = 0; j < board.length; j++) {
+            if (board[row][j] == 'Q') {
                 return false;
             }
         }
 
-        //vertical
-        for(int i=0;i<board.length;i++){
-            if(board[i][col]=='Q'){
+        // vertical
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][col] == 'Q') {
                 return false;
             }
         }
 
-        //upper left
-        int r = row;
-        for(int c= col ; c>=0 && r>=0;c--,r--){
-            if(board[r][c]=='Q'){
+        // upper left
+        int r = row, c = col;
+        while (r >= 0 && c >= 0) {
+            if (board[r][c] == 'Q')
                 return false;
-            }
-        }
-        //uper right
-        // int r = row;
-        for(int c= col ; c<board.length && r>=0;r--,c++){
-            if(board[r][c]=='Q'){
-                return false;
-            }
+            r--;
+            c--;
         }
 
-        //lower left
-        for(int c= col ; c>=0 && r<board.length;r++,c--){
-            if(board[r][c]=='Q'){
+        // upper right
+        r = row;
+        c = col;
+        while (r >= 0 && c < board.length) {
+            if (board[r][c] == 'Q')
                 return false;
-            }
+            r--;
+            c++;
         }
 
-        //lower right
-        for(int c= col ; c<board.length && r<board.length;r++,c++){
-            if(board[r][c]=='Q'){
+        // lower left
+        r = row;
+        c = col;
+        while (r < board.length && c >= 0) {
+            if (board[r][c] == 'Q')
                 return false;
-            }
+            r++;
+            c--;
+        }
+
+        // lower right
+        r = row;
+        c = col;
+        while (r < board.length && c < board.length) {
+            if (board[r][c] == 'Q')
+                return false;
+            r++;
+            c++;
         }
 
         return true;
-
     }
 
-    public void saveBoard(char[][] board ,List<List<String>> allBoard){
-        String row ="";
+    // save the board
+    public void saveBoard(char[][] board, List<List<String>> allBoard) {
         List<String> newBoard = new ArrayList<>();
-
-        for(int i=0;i<board.length;i++){
-            row="";
-            for(int j =0;j<board[0].length;j++){
-                if(board[i][j]=='Q'){
-                    row += 'Q';
-                }else{
-                    row += '.';
-                }
-                newBoard.add(row);
+        for (int i = 0; i < board.length; i++) {
+            String row = "";
+            for (int j = 0; j < board[0].length; j++) {
+                row += (board[i][j] == 'Q') ? 'Q' : '.';
             }
-            allBoard.add(newBoard);
+            newBoard.add(row);
+        }
+        allBoard.add(newBoard);
+    }
+
+    // backtracking helper
+    public void helper(char[][] board, List<List<String>> allBoard, int col) {
+        if (col == board.length) {
+            saveBoard(board, allBoard);
+            return;
+        }
+
+        for (int row = 0; row < board.length; row++) {
+            if (isSafe(row, col, board)) {
+                board[row][col] = 'Q';
+                helper(board, allBoard, col + 1);
+                board[row][col] = '.'; // backtrack
+            }
         }
     }
 
-    public void helper(char[][] board ,List<List<String>> allBoard, int col){
-        for(int row = 0;row<board.length;row++){
-            //basecase 
-            if(col == board.length){
-                saveBoard(board,allBoard);
-                return;
-            }
-            if(isSafe(row,col,board)){
-                board[row][col]= 'Q';
-                helper(board, allBoard, col+1);
-                board[row][col] = '.';
-            }
-        }
-    }
-    public List<List<String>> solveNQueens(int n){
-
+    // solve N-Queens
+    public List<List<String>> solveNQueens(int n) {
         List<List<String>> allBoard = new ArrayList<>();
         char[][] board = new char[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                board[i][j] = '.';
+            }
+        }
+
+        helper(board, allBoard, 0);
         return allBoard;
     }
-    public  static void main(String[] args){
 
-        //Q1 : printing all the permutations of arranging n strudents in chairs
-        // String str = "ABC";
-        // printPermutations(str, "", 0);
-
-
-
-        //Q2: n queens problem (chess)
+    public static void main(String[] args) {
+        l13_backtracking solver = new l13_backtracking();
         int n = 4;
+        List<List<String>> solutions = solver.solveNQueens(n);
+
+        int count = 1;
+        for (List<String> board : solutions) {
+            System.out.println("Solution " + count + ":");
+            for (String row : board) {
+                System.out.println(row);
+            }
+            System.out.println();
+            count++;
+        }
     }
 }
