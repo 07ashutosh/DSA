@@ -52,30 +52,33 @@
 
 public class l17_oops{
     // single level inheritance
-    class Shapes{
-        public void area(){
-            System.out.println("print area");
-        }
-    }
-    class Triangle extends Shapes{
-        public void area(int l, int h){
-            System.out.println(1/2*l*h);
-        }
-    }
+    // class Shapes{
+    //     public void area(){
+    //         System.out.println("print area");
+    //     }
+    // }
+    // class Triangle extends Shapes{
+    //     public void area(int l, int h){
+    //         System.out.println(1/2*l*h);
+    //     }
+    // }
 
-    //start of multilevel inheritance
-    class EquilateralTriangle extends Triangle{
-        public void area(int l, int h){
-            System.out.println(1/2*l*h);
-        }
-    }
+    // //start of multilevel inheritance
+    // class EquilateralTriangle extends Triangle{
+    //     public void area(int l, int h){
+    //         System.out.println(1/2*l*h);
+    //     }
+    // }
 
-    //hierarchial inhritence (when a single parent class is inherit by multiple child)
-    class Circle extends Shapes{
-        public void area(int r){
-            System.out.println((3.14)*r*r);
-        }
-    }
+    // //hierarchial inhritence (when a single parent class is inherit by multiple child)
+
+
+    
+    // class Circle extends Shapes{
+    //     public void area(int r){
+    //         System.out.println((3.14)*r*r);
+    //     }
+    // }
     public static void main(String [] args){
 
     }
