@@ -96,5 +96,11 @@ public class l19_LinkList {
 
         list.addFirst("This");
         list.printList();
+
+        list.deleteFirst();
+        list.printList();
+
+        list.deleteLast();
+        list.printList();
     }
 }
