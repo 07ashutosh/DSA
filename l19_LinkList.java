@@ -1,7 +1,11 @@
 
 public class l19_LinkList {
     Node head;
+    private int size;
 
+    l19_LinkList() {
+        this.size = 0;
+    }
     class Node {
         String data;
         Node next;
@@ -9,6 +13,7 @@ public class l19_LinkList {
         Node(String data) {
             this.data = data;
             this.next = null;
+            size++;
         }
     }
 
@@ -46,6 +51,7 @@ public class l19_LinkList {
             System.out.println("list is empty");
             return;
         }
+        size--;
         head = head.next;
     }
 
@@ -55,6 +61,7 @@ public class l19_LinkList {
             System.out.println("list is empty");
             return;
         }
+        size--;
         if(head.next == null){
             head = null;
             return;
@@ -85,6 +92,10 @@ public class l19_LinkList {
         System.out.println("NULL");
     }
 
+    public int getSize(){
+        return size;
+    }
+
 
 
     public static void main(String[] args) {
@@ -102,5 +113,7 @@ public class l19_LinkList {
 
         list.deleteLast();
         list.printList();
+
+        System.out.println(list.getSize());
     }
 }
