@@ -40,6 +40,37 @@ public class l19_LinkList {
 
     }
 
+    //delete  first
+    public void deleteFirst(){
+        if(head == null){
+            System.out.println("list is empty");
+            return;
+        }
+        head = head.next;
+    }
+
+    //delete last
+    public void deleteLast(){
+        if(head == null){
+            System.out.println("list is empty");
+            return;
+        }
+        if(head.next == null){
+            head = null;
+            return;
+        }
+
+        Node secondLast = head;
+        Node lastNode = head.next;
+        while(lastNode.next != null){
+            lastNode = lastNode.next;
+            secondLast = secondLast.next;
+        }
+
+        secondLast.next = null;
+    }
+
+
     public void printList(){
         if(head == null){
             System.out.println("List is empty");
